@@ -3,11 +3,15 @@ import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-nativ
 import axios from 'axios';
 import PlayIcon from '../components/themed/PlayIcon';
 
-const DisplayWord = ({displayWord}) => {
+const DisplayWord = ({displayWord, phoneticText}) => {
     return (
       <View style={styles.displayContainer}>
-        <Text style={styles.word}>{displayWord}</Text>
-        {/* <PlayIcon /> */}
+        <View>
+          <Text style={styles.word}>{displayWord}</Text>
+          <Text style={styles.phonetics}>{phoneticText}</Text>
+        </View>
+        
+        <PlayIcon />
       </View>
     );
 };
@@ -17,6 +21,10 @@ const styles = StyleSheet.create({
         fontSize: 30,
         marginTop: 20,
         alignItems: 'flex-start',
+    },
+    phonetics: {
+      fontSize: 20,
+      marginTop: 5,
     },
     displayContainer: {
         flexDirection: 'row',

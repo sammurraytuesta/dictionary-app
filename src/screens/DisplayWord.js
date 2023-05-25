@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
-import PlayIcon from '../components/themed/PlayIcon';
+import PlayIcon from '../components/PlayIcon';
 
 const DisplayWord = ({displayWord, phoneticText}) => {
     return (
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'space-between',
         marginTop: 20,
-        marginHorizontal: 10,
+        marginHorizontal: 20,
         padding: 10,
     }
 });

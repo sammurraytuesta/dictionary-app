@@ -3,8 +3,9 @@ import { View, Text, TextInput, StyleSheet, TouchableOpacity, SafeAreaView } fro
 import axios from 'axios';
 import InputArea from './InputArea';
 import DisplayWord from './DisplayWord';
+import Footer from './Footer';
 import Card from './Card';
-import PlayIcon from '../components/themed/PlayIcon';
+import PlayIcon from '../components/PlayIcon';
 
 const HomeScreen = () => {
   const [word, setWord] = useState('');
@@ -41,6 +42,10 @@ const HomeScreen = () => {
             ) : null}
         </View>
 
+        
+
+        <Footer />
+
 
       </SafeAreaView>
     </>
@@ -65,7 +70,7 @@ const styles = StyleSheet.create({
   definitionContainer: {
     alignItems: 'center',
     marginTop: 20,
-    marginHorizontal: 10,
+    marginHorizontal: 20,
   },
   displayWord: {
     fontSize: 30,
@@ -75,6 +80,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 330,
     marginTop: 20,
+    marginHorizontal: 20,
   }
 });
 

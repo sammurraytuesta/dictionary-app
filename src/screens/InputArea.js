@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Pressable, Image} from 'react-native';
 import axios from 'axios';
-import SearchIcon from '../components/themed/SearchIcon';
+import SearchIcon from '../components/SearchIcon';
 
 
 
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
       paddingHorizontal: 10,
       height: 45,
       backgroundColor: '#dcdcdc',
-      marginHorizontal: 15,
+      marginHorizontal: 20,
       marginTop: 15,
     },
 

@@ -1,6 +1,8 @@
 import { CardAnimationContext } from '@react-navigation/stack';
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { useThemeColors } from '../hooks/useThemeColors.js';
+import { Text, TextBold } from '../components/themed';
 import DisplayWord from './DisplayWord';
 
 const Card = (definition) => {

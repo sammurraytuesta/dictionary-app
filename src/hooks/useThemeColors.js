@@ -1,5 +1,5 @@
-import Colors from 'constants/Colors';
 import { useCustomTheme } from './useCustomTheme';
+import Colors from '../constants/Colors';
 
 export const useThemeColors = () => {
   const customTheme = useCustomTheme();

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Pressable, Image} from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity, Pressable, Image} from 'react-native';
 import axios from 'axios';
-import SearchIcon from '../components/SearchIcon';
+import { useThemeColors } from '../hooks/useThemeColors.js';
+import { Text, TextBold } from '../components/themed';
+import SearchIcon from '../components/svgr/SearchIcon.js';
 
 
 
@@ -12,7 +14,7 @@ const InputArea = ({handleSearch, word, setWord}) => {
           <TextInput
             style={styles.input}
             placeholder="Enter a word"
-            placeholderTextColor={'black'}
+            placeholderTextColor={'#afafaf'}
             value={word}
             keyboardType='default'
             onChangeText={text => setWord(text)}
@@ -31,21 +33,22 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'space-between',
       borderWidth: 1,
-      borderRadius: 5,
-      borderColor: '#dcdcdc',
-      paddingHorizontal: 10,
+      borderRadius: 10,
+      borderColor: '#f4f4f4',
+      paddingHorizontal: 15,
       height: 45,
-      backgroundColor: '#dcdcdc',
+      backgroundColor: '#f4f4f4',
       marginHorizontal: 20,
       marginTop: 15,
     },
-
     input: {
       flex: 1,
       height: 40,
+      fontFamily: 'Lora-Bold',
     },
     button: {
-      padding: 8,
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     buttonText: {
       color: '#fff',

@@ -1,23 +1,20 @@
 export const white = '#fff';
-//change hex codes later
 
-const Themes = {
+const Colors = {
   light: {
-    text: '#2b3442',
-    textMidContrast: '#4b6a9b',
-    textLowContrast: '#697c9a',
-    textSearchPlaceholder: '#4b6a9b',
+    //light theme colors are correct
+    text: '#636363',
+    textBold: '#303030',
+    textAccent: '#a743ed',
+    textDescriptor: '#afafaf',
 
-    background: '#f6f8ff',
-    backgroundSecondary: '#fefefe',
+    background: white,
+    searchBar: '#f4f4f4',
 
-    primary: '#0079ff',
-    primaryHover: '#60abff',
-
-    tabBarActive: '#E71D36',
-    tabBarInactive: '#84929E',
+    tabIcon: '#757575',
   },
   dark: {
+    //dark theme colors need to be updated
     text: white,
     textMidContrast: '#4b6a9b',
 
@@ -32,4 +29,4 @@ const Themes = {
   },
 };
 
-export default Themes;
+export default Colors;

@@ -1,38 +1,38 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
-import PlayIcon from '../components/PlayIcon';
+import { useThemeColors } from '../hooks/useThemeColors.js';
+import { Title, Phonetics } from '../components/themed';
+import PlayIcon from '../components/svgr/PlayIcon';
 
 const DisplayWord = ({displayWord, phoneticText}) => {
     return (
       <View style={styles.displayContainer}>
         <View>
-          <Text style={styles.word}>{displayWord}</Text>
-          <Text style={styles.phonetics}>{phoneticText}</Text>
+          <Title>{displayWord}</Title>
+          <Phonetics style={styles.phonetics}>{phoneticText}</Phonetics>
         </View>
-        
-        <PlayIcon />
+        <View style={styles.play}>
+          <PlayIcon />
+        </View>
       </View>
     );
 };
 
 const styles = StyleSheet.create({
-    word: {
-        fontSize: 30,
-        marginTop: 20,
-        alignItems: 'flex-start',
-    },
     phonetics: {
-      fontSize: 20,
       marginTop: 5,
+    },
+    play: {
+      width: 50,
+      height: 50,
     },
     displayContainer: {
         flexDirection: 'row',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         justifyContent: 'space-between',
         marginTop: 20,
         marginHorizontal: 20,
-        padding: 10,
     }
 });
 

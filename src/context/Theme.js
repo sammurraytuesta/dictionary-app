@@ -1,18 +1,18 @@
 import { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Colors from 'constants/Colors';
+import Colors from '../constants/Colors';
 
 const Themes = ['light', 'dark'];
 
 const ThemeContext = createContext({
-  theme: 'dark',
+  theme: 'light',
   setTheme: () => {},
-  colors: Colors['dark'],
+  colors: Colors['light'],
   loading: true,
 });
 
 const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const [loading, setLoading] = useState(true);
   const colors = Colors[theme];
 

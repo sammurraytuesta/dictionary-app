@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
 import axios from 'axios';
+import { useThemeColors } from '../hooks/useThemeColors.js';
+import { Text, Subtitle, Italics} from '../components/themed';
 import InputArea from './InputArea';
 import DisplayWord from './DisplayWord';
 import Footer from './Footer';
 import Card from './Card';
-import PlayIcon from '../components/PlayIcon';
+import PlayIcon from '../components/svgr/PlayIcon';
 
 const HomeScreen = () => {
   const [word, setWord] = useState('');
@@ -64,7 +66,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   definition: {
-    fontSize: 20,
     marginTop: 20,
   },
   definitionContainer: {

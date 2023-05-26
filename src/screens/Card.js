@@ -16,8 +16,8 @@ const Card = (mean) => {
             <Text>Meaning</Text>
             {mean ? (
                 <>
-                  {mean.meaning.definitions.map( def => 
-                    <Text>{def}</Text>
+                  {mean.meaning.definitions.map( (def, index ) => 
+                    <Text key={index}>{def}</Text>
                   )}
                 </>
             ) : null}

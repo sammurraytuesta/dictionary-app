@@ -5,15 +5,21 @@ import { useThemeColors } from '../hooks/useThemeColors.js';
 import { Text, TextBold } from '../components/themed';
 import DisplayWord from './DisplayWord';
 
-const Card = (definition) => {
+const Card = (mean) => {
+
+    console.log(mean);
 
     return (
         <>     
-            
-
-            <View style={styles.definitionContainer}>
-            {definition ? (
-                <Text style={styles.definition}>{definition}</Text>
+            <View style={styles.meaningContainer}>
+            <Text style={styles.meaning}>{mean.meaning.partOfSpeech}</Text>
+            <Text>Meaning</Text>
+            {mean ? (
+                <>
+                  {mean.meaning.definitions.map( def => 
+                    <Text>{def}</Text>
+                  )}
+                </>
             ) : null}
             </View>
         </>
@@ -22,24 +28,18 @@ const Card = (definition) => {
 };
 
 const styles = StyleSheet.create({
-    definition: {
-        fontSize: 20,
-        marginTop: 20,
-      },
-      definitionContainer: {
-        alignItems: 'center',
-        marginTop: 20,
-        marginHorizontal: 10,
-      },
-      displayWord: {
-        fontSize: 30,
-        marginTop: 20,
-      },
-      displayContainer: {
-        alignItems: 'center',
-        marginRight: 330,
-        marginTop: 20,
-      },
+  title: {
+    fontSize: 30,
+    marginBottom: 20,
+  },
+  meaning: {
+    marginTop: 10,
+  },
+  meaningContainer: {
+    alignItems: 'left',
+    marginTop: 20,
+    marginHorizontal: 20,
+  },
 });
 
 

@@ -11,7 +11,7 @@ import PlayIcon from '../components/svgr/PlayIcon';
 
 const HomeScreen = () => {
   const [word, setWord] = useState('');
-  const [definition, setDefinition] = useState('');
+  const [definitions, setDefinitions] = useState([]);
   const [displayWord, setDisplayWord] = useState('');
   const [phoneticText, setPhoneticText] = useState('');
   const [partOfSpeech, setPartOfSpeech] = useState('');
@@ -19,12 +19,12 @@ const HomeScreen = () => {
   const handleSearch = async () => {
     try {
       const response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
-      const data = response.data[0].meanings[0].definitions[0].definition;
       const wordName = response.data[0].word;
-      const phoneticText = response.data[0].phonetic
-      setDefinition(data);
-      setDisplayWord (wordName);
+      const phoneticText = response.data[0].phonetic;
+      const definitionArray = response.data[0].meanings[0].definitions.map(def => def.definition);
+      setDisplayWord(wordName);
       setPhoneticText(phoneticText);
+      setDefinitions(definitionArray);
     } catch (error) {
       console.error(error);
     }
@@ -33,32 +33,27 @@ const HomeScreen = () => {
   return (
     <>
       <SafeAreaView style={styles.container}>
-        {/* <Text style={styles.title}>Dictionary App</Text> */}
         <InputArea handleSearch={handleSearch} word={word} setWord={setWord} />
 
         <DisplayWord displayWord={displayWord} phoneticText={phoneticText} />
 
         <View style={styles.definitionContainer}>
-            {definition ? (
-                <Text style={styles.definition}>{definition}</Text>
-            ) : null}
+          {definitions.map((definition, index) => (
+            <Text key={index} style={styles.definition}>
+              {definition}
+            </Text>
+          ))}
         </View>
 
-        
-
         <Footer />
-
-
       </SafeAreaView>
     </>
-
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //alignItems: 'center',
     backgroundColor: 'white',
   },
   title: {
@@ -69,7 +64,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   definitionContainer: {
-    alignItems: 'center',
+    alignItems: 'left',
     marginTop: 20,
     marginHorizontal: 20,
   },

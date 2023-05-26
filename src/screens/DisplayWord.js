@@ -13,7 +13,7 @@ const DisplayWord = ({displayWord, phoneticText}) => {
           <Phonetics style={styles.phonetics}>{phoneticText}</Phonetics>
         </View>
         <View style={styles.play}>
-          <PlayIcon />
+          {( displayWord ? <PlayIcon /> : null)}
         </View>
       </View>
     );

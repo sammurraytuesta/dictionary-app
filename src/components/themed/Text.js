@@ -49,7 +49,7 @@ const Subtitle = ({ style, ...rest }) => {
   return (
     <DefaultText
       style={[
-        { color: colors.textDescriptor, fontFamily: 'Lora-Regular', fontSize: 16 },
+        { color: colors.textDescriptor, fontFamily: 'Lora-Regular', fontSize: 12 },
         style,
       ]}
       {...rest}

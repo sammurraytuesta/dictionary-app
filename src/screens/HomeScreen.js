@@ -37,13 +37,19 @@ const HomeScreen = () => {
 
         <DisplayWord displayWord={displayWord} phoneticText={phoneticText} />
 
-        <View style={styles.definitionContainer}>
-          {definitions.map((definition, index) => (
-            <Text key={index} style={styles.definition}>
-              {definition}
-            </Text>
-          ))}
-        </View>
+        {/* Put this in card.
+          * pass in type of definitions: noun, verb, etc.
+          * pass in arrays for meanings and synonyms */}
+        {( displayWord ? 
+          <View style={styles.definitionContainer}>
+            <Subtitle>Meaning</Subtitle>
+            {definitions.map((definition, index) => (
+              <Text key={index} style={styles.definition}>
+                {definition}
+              </Text>
+            ))}
+          </View>
+        : null)}
 
         <Footer />
       </SafeAreaView>
@@ -61,7 +67,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   definition: {
-    marginTop: 20,
+    marginTop: 10,
   },
   definitionContainer: {
     alignItems: 'left',

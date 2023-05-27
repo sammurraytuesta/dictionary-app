@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '90%',
         marginHorizontal: 20,
-        marginTop: 10,
     },
     text: {
         fontSize: 10,

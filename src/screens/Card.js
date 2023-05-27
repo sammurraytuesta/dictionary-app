@@ -10,14 +10,16 @@ const Card = ({ meaning }) => {
         <View style={styles.horizontalLine} />
       </View>
       <Subtitle>Meaning</Subtitle>
-      {meaning.definitions.length != 0 ? 
+      {meaning.definitions.length !== 0 ? (
         <View style={styles.definitionsContainer}>
           {meaning.definitions.map((def, index) => (
-            <Text key={index}>{def}</Text>
+            <View key={index} style={styles.bulletContainer}>
+              <Text style={styles.bulletPoint}>•</Text>
+              <Text>{def}</Text>
+            </View>
           ))}
         </View>
-        : null
-      }
+      ) : null}
       {meaning.synonyms.length != 0 ? 
         <View style={styles.nyms}>
           <Subtitle>Synonyms</Subtitle>
@@ -36,6 +38,7 @@ const Card = ({ meaning }) => {
         </View>
         : null
       }
+      {/* fix this so that the example is under each definition */}
       {meaning.example.some((item) => item !== undefined) ? (
         <Subtitle style={styles.example}>"{meaning.example}"</Subtitle>
       ): null}
@@ -56,6 +59,17 @@ const styles = StyleSheet.create({
   },
   definitionsContainer: {
     marginBottom: 20,
+    width: '90%',
+    marginHorizontal: 15,
+  },
+  bulletContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 5,
+  },
+  bulletPoint: {
+    marginRight: 5,
+    color: '#a743ed',
   },
   horizontalLine: {
     borderBottomColor: '#afafaf',
@@ -68,6 +82,7 @@ const styles = StyleSheet.create({
   },
   example: {
     marginTop: -15,
+    marginHorizontal: 25,
   },
 });
 

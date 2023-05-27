@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
   example: {
     marginTop: 5,
     marginLeft: 10,
+    marginBottom: 0,
   },
 });
 

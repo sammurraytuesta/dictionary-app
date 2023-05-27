@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Pressable, Linking } from 'react-native';
+import { View, StyleSheet, Pressable, Linking } from 'react-native';
 import { useThemeColors } from '../hooks/useThemeColors.js';
-import { Text, TextBold } from '../components/themed';
+import { Text } from '../components/themed';
 import NewWindowIcon from '../components/svgr/NewWindowIcon';
 
 

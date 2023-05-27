@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import axios from 'axios';
+import Header from './Header';
 import InputArea from './InputArea';
 import DisplayWord from './DisplayWord';
 import Footer from './Footer';
@@ -42,6 +43,7 @@ const HomeScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <SafeAreaView>
+        <Header />
         <InputArea handleSearch={handleSearch} word={word} setWord={setWord} />
 
         <DisplayWord displayWord={displayWord} phoneticText={phoneticText} audioUrl={audioUrl} />
@@ -50,7 +52,7 @@ const HomeScreen = () => {
           <Card key={index} meaning={mean} />
         ))}
 
-        <Footer displayWord={displayWord} />
+        {displayWord ? <Footer displayWord={displayWord} /> : null}
       </SafeAreaView>
     </ScrollView>
   );

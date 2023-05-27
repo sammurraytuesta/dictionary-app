@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Pressable } from 'react-native';
-import { Audio } from 'expo-av'; // Import Audio from 'expo-av' instead of 'react-native'
-import axios from 'axios';
+import { Audio } from 'expo-av'; 
 import { useThemeColors } from '../hooks/useThemeColors.js';
 import { Title, Phonetics } from '../components/themed';
 import PlayIcon from '../components/svgr/PlayIcon';

@@ -5,10 +5,10 @@ import { Text, TextBold } from '../components/themed';
 import NewWindowIcon from '../components/svgr/NewWindowIcon';
 
 
-const Footer = () => {
+const Footer = ({displayWord}) => {
 
     const openLink = () => {
-        const url = 'https://en.wiktionary.org/wiki/keyboard';
+        const url = `https://en.wiktionary.org/wiki/${displayWord}`;
         Linking.openURL(url);
     }
     return (
@@ -17,7 +17,7 @@ const Footer = () => {
             <View style={styles.footerContainer}>
                 <Text style={styles.text}>Source </Text>
                 <Pressable onPress={openLink}>
-                    <Text style={styles.text}>    https://en.wiktionary.org/wiki/keyboard     </Text>
+                    <Text style={styles.text}>    https://en.wiktionary.org/wiki/{displayWord}    </Text>
                 </Pressable>
                 <Pressable onPress={openLink}>
                     <NewWindowIcon />
@@ -41,8 +41,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginBottom: 20,
         marginTop: 10,
-        justifyContent: 'center',
-        
     },
     footer: {
         flex: 1,

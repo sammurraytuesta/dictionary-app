@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import axios from 'axios';
-import { useThemeColors } from '../hooks/useThemeColors.js';
-import { Text, Subtitle, Italics} from '../components/themed';
 import InputArea from './InputArea';
 import DisplayWord from './DisplayWord';
 import Footer from './Footer';
 import Card from './Card';
-import PlayIcon from '../components/svgr/PlayIcon';
 
 const HomeScreen = () => {
   const [word, setWord] = useState('');
@@ -22,7 +19,6 @@ const HomeScreen = () => {
       const wordName = response.data[0].word;
       const phoneticText = response.data[0].phonetic;
       const url = response.data[0].phonetics[0].audio;
-      console.log(url);
       const meanings = response.data[0].meanings.map(meaning => {
         return {
           partOfSpeech: meaning.partOfSpeech,
@@ -42,8 +38,8 @@ const HomeScreen = () => {
   };
 
   return (
-    <>
-      <SafeAreaView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
+      <SafeAreaView>
         <InputArea handleSearch={handleSearch} word={word} setWord={setWord} />
 
         <DisplayWord displayWord={displayWord} phoneticText={phoneticText} audioUrl={audioUrl} />
@@ -52,15 +48,15 @@ const HomeScreen = () => {
           <Card key={index} meaning={mean} />
         ))}
 
-        <Footer />
+        <Footer displayWord={displayWord} />
       </SafeAreaView>
-    </>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: 'white',
   },
 });

@@ -38,7 +38,7 @@ const Card = ({ meaning }) => {
         </View>
         : null
       }
-      {/* fix this so that the example is under each definition */}
+      {/* fix this so that the example is under each definition?? */}
       {meaning.example.some((item) => item !== undefined) ? (
         <Subtitle style={styles.example}>"{meaning.example}"</Subtitle>
       ): null}
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
   },
   nyms: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
   },
   example: {
     marginTop: -15,

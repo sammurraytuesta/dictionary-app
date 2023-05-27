@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import {  Text, TextBold, Title, Subtitle, Phonetics, Italics, Emphasize} from '../components/themed';
+import { Text, TextBold, Title, Subtitle, Phonetics, Italics, Emphasize } from '../components/themed';
 
 const Card = ({ meaning }) => {
   return (
@@ -13,35 +13,34 @@ const Card = ({ meaning }) => {
       {meaning.definitions.length !== 0 ? (
         <View style={styles.definitionsContainer}>
           {meaning.definitions.map((def, index) => (
-            <View key={index} style={styles.bulletContainer}>
-              <Text style={styles.bulletPoint}>•</Text>
-              <Text>{def}</Text>
+            <View key={index} style={styles.definitionContainer}>
+              <View style={styles.bulletContainer}>
+                <Text style={styles.bulletPoint}>•</Text>
+                <Text>{def.definition}</Text>
+              </View>
+              {def.example ? (
+                <Subtitle style={styles.example}>"{def.example}"</Subtitle>
+              ) : null}
             </View>
           ))}
         </View>
       ) : null}
-      {meaning.synonyms.length != 0 ? 
+      {meaning.synonyms.length !== 0 ? (
         <View style={styles.nyms}>
           <Subtitle>Synonyms</Subtitle>
           {meaning.synonyms.map((def, index) => (
-              <Emphasize key={index}>{def}</Emphasize>
+            <Emphasize key={index}>{def}</Emphasize>
           ))}
         </View>
-        : null
-      }
-      {meaning.antonyms.length != 0 ? 
+      ) : null}
+      {meaning.antonyms.length !== 0 ? (
         <View style={styles.nyms}>
           <Subtitle>Antonyms</Subtitle>
           {meaning.antonyms.map((def, index) => (
-              <Emphasize key={index}>{def}</Emphasize>
+            <Emphasize key={index}>{def}</Emphasize>
           ))}
         </View>
-        : null
-      }
-      {/* fix this so that the example is under each definition?? */}
-      {meaning.example.some((item) => item !== undefined) ? (
-        <Subtitle style={styles.example}>"{meaning.example}"</Subtitle>
-      ): null}
+      ) : null}
     </View>
   );
 };
@@ -62,10 +61,12 @@ const styles = StyleSheet.create({
     width: '90%',
     marginHorizontal: 15,
   },
+  definitionContainer: {
+    marginBottom: 5,
+  },
   bulletContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 5,
   },
   bulletPoint: {
     marginRight: 5,
@@ -82,8 +83,8 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   example: {
-    marginTop: -15,
-    marginHorizontal: 25,
+    marginTop: 5,
+    marginLeft: 10,
   },
 });
 

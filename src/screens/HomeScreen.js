@@ -22,10 +22,12 @@ const HomeScreen = () => {
       const meanings = response.data[0].meanings.map(meaning => {
         return {
           partOfSpeech: meaning.partOfSpeech,
-          definitions: meaning.definitions.map(def => def.definition),
+          definitions: meaning.definitions.map(def => ({
+            definition: def.definition,
+            example: def.example, 
+          })),
           synonyms: meaning.synonyms,
           antonyms: meaning.antonyms,
-          example: meaning.definitions.map(def => def.example),
         };
       });
       setDisplayWord(wordName);

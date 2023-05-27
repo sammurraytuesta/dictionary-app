@@ -1,1 +1,1 @@
-export { Text, TextBold, Title, Subtitle, Phonetics, Italics} from "./Text";
+export { Text, TextBold, Title, Subtitle, Phonetics, Italics, Emphasize} from "./Text";

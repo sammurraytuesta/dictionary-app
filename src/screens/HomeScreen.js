@@ -24,6 +24,9 @@ const HomeScreen = () => {
         return {
           partOfSpeech: meaning.partOfSpeech,
           definitions: meaning.definitions.map(def => def.definition),
+          synonyms: meaning.synonyms,
+          antonyms: meaning.antonyms,
+          example: meaning.definitions.map(def => def.example),
         };
       });
       setDisplayWord(wordName);

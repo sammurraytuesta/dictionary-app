@@ -49,7 +49,21 @@ const Subtitle = ({ style, ...rest }) => {
   return (
     <DefaultText
       style={[
-        { color: colors.textDescriptor, fontFamily: 'Lora-Regular', fontSize: 12 },
+        { color: colors.textDescriptor, fontFamily: 'Lora-Regular', fontSize: 12, marginBottom: 10, },
+        style,
+      ]}
+      {...rest}
+    />
+  );
+};
+
+const Emphasize = ({ style, ...rest }) => {
+  const { colors } = useThemeColors();
+
+  return (
+    <DefaultText
+      style={[
+        { color: colors.textAccent, fontFamily: 'Lora-Bold', fontSize: 12, marginBottom: 10, marginHorizontal: 10,},
         style,
       ]}
       {...rest}
@@ -77,7 +91,7 @@ const Italics = ({ style, ...rest }) => {
   return (
     <DefaultText
       style={[
-        { color: colors.textBold, fontFamily: 'Lora-BoldItalic', fontSize: 15 },
+        { color: colors.textBold, fontFamily: 'Lora-BoldItalic', fontSize: 15, marginBottom: 20, },
         style,
       ]}
       {...rest}
@@ -85,5 +99,5 @@ const Italics = ({ style, ...rest }) => {
   );
 };
 
-export { Text, TextBold, Title, Subtitle, Phonetics, Italics };
+export { Text, TextBold, Title, Subtitle, Phonetics, Italics, Emphasize};
 export default Text;

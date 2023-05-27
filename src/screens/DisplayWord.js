@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Audio, Pressable } from 'react-native';
+import { View, StyleSheet, Pressable } from 'react-native';
+import { Audio } from 'expo-av'; // Import Audio from 'expo-av' instead of 'react-native'
 import axios from 'axios';
 import { useThemeColors } from '../hooks/useThemeColors.js';
 import { Title, Phonetics } from '../components/themed';
 import PlayIcon from '../components/svgr/PlayIcon';
 
-const DisplayWord = ({displayWord, phoneticText, audioUrl}) => {
+const DisplayWord = ({ displayWord, phoneticText, audioUrl }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   let sound = null;
 
   const playAudio = async () => {
     try {
-      const {sound: playbackSound } = await Audio.Sound.createAsync(
+      const { sound: playbackSound } = await Audio.Sound.createAsync(
         { uri: audioUrl },
         { shouldPlay: true }
       );
@@ -28,7 +29,7 @@ const DisplayWord = ({displayWord, phoneticText, audioUrl}) => {
       setIsPlaying(false);
     }
   };
-    
+
   return (
     <View style={styles.displayContainer}>
       <View>
@@ -37,7 +38,7 @@ const DisplayWord = ({displayWord, phoneticText, audioUrl}) => {
       </View>
       <View>
         <Pressable style={styles.play} onPress={playAudio}>
-          {( displayWord ? <PlayIcon /> : null)}
+          {displayWord ? <PlayIcon /> : null}
         </Pressable>
       </View>
     </View>
@@ -45,20 +46,20 @@ const DisplayWord = ({displayWord, phoneticText, audioUrl}) => {
 };
 
 const styles = StyleSheet.create({
-    phonetics: {
-      marginTop: 5,
-    },
-    play: {
-      width: 50,
-      height: 50,
-    },
-    displayContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginTop: 20,
-        marginHorizontal: 20,
-    }
+  phonetics: {
+    marginTop: 5,
+  },
+  play: {
+    width: 50,
+    height: 50,
+  },
+  displayContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 20,
+    marginHorizontal: 20,
+  },
 });
 
 export default DisplayWord;

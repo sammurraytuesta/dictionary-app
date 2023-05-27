@@ -5,7 +5,10 @@ import {  Text, TextBold, Title, Subtitle, Phonetics, Italics, Emphasize} from '
 const Card = ({ meaning }) => {
   return (
     <View style={styles.meaningContainer}>
-      <Italics>{meaning.partOfSpeech}</Italics>
+      <View style={styles.partOfSpeechContainer}>
+        <Italics>{meaning.partOfSpeech}</Italics>
+        <View style={styles.horizontalLine} />
+      </View>
       <Subtitle>Meaning</Subtitle>
       {meaning.definitions.length != 0 ? 
         <View style={styles.definitionsContainer}>
@@ -41,6 +44,11 @@ const Card = ({ meaning }) => {
 };
 
 const styles = StyleSheet.create({
+  partOfSpeechContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   meaningContainer: {
     alignItems: 'left',
     marginTop: 20,
@@ -48,6 +56,12 @@ const styles = StyleSheet.create({
   },
   definitionsContainer: {
     marginBottom: 20,
+  },
+  horizontalLine: {
+    borderBottomColor: '#afafaf',
+    borderBottomWidth: 0.5,
+    height: 12,
+    width: '90%',
   },
   nyms: {
     flexDirection: 'row',

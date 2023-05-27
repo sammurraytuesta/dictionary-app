@@ -32,14 +32,13 @@ const Footer = () => {
 
 const styles = StyleSheet.create({
     horizontalLine: {
-      borderBottomColor: 'black',
-      borderBottomWidth: 1,
+      borderBottomColor: '#afafaf',
+      borderBottomWidth: 0.5,
       height: 5,
     },
     footerContainer: {
         flex: 1,
         flexDirection: 'row',
-        //justifyContent: 
         marginBottom: 20,
         marginTop: 10,
         justifyContent: 'center',
@@ -47,10 +46,9 @@ const styles = StyleSheet.create({
     },
     footer: {
         flex: 1,
-        position: 'absolute',
-        bottom: 30,
         width: '90%',
         marginHorizontal: 20,
+        marginTop: 10,
     },
     text: {
         fontSize: 10,

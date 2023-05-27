@@ -20,25 +20,19 @@ const HomeScreen = () => {
       const response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
       const wordName = response.data[0].word;
       const phoneticText = response.data[0].phonetic;
-      response.data[0].meanings.map(meaning => addMeaning(meaning));
+      const meanings = response.data[0].meanings.map(meaning => {
+        return {
+          partOfSpeech: meaning.partOfSpeech,
+          definitions: meaning.definitions.map(def => def.definition),
+        };
+      });
       setDisplayWord(wordName);
       setPhoneticText(phoneticText);
+      setMeanings(meanings);
     } catch (error) {
       console.error(error);
     }
   };
-
-  const addMeaning = (meaning) => {
-    //map each meaning to set a definitions array associated with that part of speech 
-    // meaning: 
-    //     partOfSpeech: 
-    //     definitionsArray[]: 
-    const newMeaning = {
-      partOfSpeech: meaning.partOfSpeech,
-      definitions: meaning.definitions.map(def => def.definition),
-    };
-    setMeanings([...meanings, newMeaning]);
-  }
 
   return (
     <>
@@ -47,9 +41,9 @@ const HomeScreen = () => {
 
         <DisplayWord displayWord={displayWord} phoneticText={phoneticText} />
 
-        {meanings ? 
-          meanings.map( (mean, index) => <Card key={index} meaning={mean}/>)
-        : null}
+        {meanings.map((mean, index) => (
+          <Card key={index} meaning={mean} />
+        ))}
 
         <Footer />
       </SafeAreaView>

@@ -14,12 +14,15 @@ const HomeScreen = () => {
   const [displayWord, setDisplayWord] = useState('');
   const [phoneticText, setPhoneticText] = useState('');
   const [meanings, setMeanings] = useState([]);
+  const [audioUrl, setAudioUrl] = useState('');
 
   const handleSearch = async () => {
     try {
       const response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
       const wordName = response.data[0].word;
       const phoneticText = response.data[0].phonetic;
+      const url = response.data[0].phonetics[0].audio;
+      console.log(url);
       const meanings = response.data[0].meanings.map(meaning => {
         return {
           partOfSpeech: meaning.partOfSpeech,
@@ -32,6 +35,7 @@ const HomeScreen = () => {
       setDisplayWord(wordName);
       setPhoneticText(phoneticText);
       setMeanings(meanings);
+      setAudioUrl(url);
     } catch (error) {
       console.error(error);
     }
@@ -42,7 +46,7 @@ const HomeScreen = () => {
       <SafeAreaView style={styles.container}>
         <InputArea handleSearch={handleSearch} word={word} setWord={setWord} />
 
-        <DisplayWord displayWord={displayWord} phoneticText={phoneticText} />
+        <DisplayWord displayWord={displayWord} phoneticText={phoneticText} audioUrl={audioUrl} />
 
         {meanings.map((mean, index) => (
           <Card key={index} meaning={mean} />

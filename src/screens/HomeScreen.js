@@ -49,14 +49,13 @@ const HomeScreen = () => {
       setDisplayError(true);
     } catch (error) {
         setDisplayError(false);
-        setIsWord("Sorry pal, we couldn't find definitions for the word you were looking for.You can try the search again at later time or head to the web instead" );
+        setIsWord("Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead." );
     }
   };
 
   return (
     <ScrollView testID='home-screen' contentContainerStyle={[styles.container, { backgroundColor: colors.background }]}>
         <InputArea handleSearch={handleSearch} word={word} setWord={setWord} />
-
             {displayError ? 
               <> 
                 <DisplayWord 

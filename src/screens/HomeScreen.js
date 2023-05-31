@@ -42,8 +42,8 @@ const HomeScreen = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <SafeAreaView>
+    <ScrollView testID='test-header' contentContainerStyle={styles.container} >
+      <SafeAreaView testID='home-screen'>
         <Header />
         <InputArea handleSearch={handleSearch} word={word} setWord={setWord} />
 

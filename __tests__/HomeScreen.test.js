@@ -20,7 +20,7 @@ test('test background color', async () => {
 
     await waitFor(
         () => {
-            const card = getByTestId('test-header');
+            const card = getByTestId('test-background');
             const style = card.props.contentContainerStyle[1];
             expect(style.backgroundColor).toBe('#fff');
         },
@@ -47,5 +47,5 @@ test('test is searchButton triggers handleSearch function', async () => {
 })
 
 
-//Test is audio play button triggeres playAudio function
+//Test is audio play button triggers playAudio function
 

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import { useCustomTheme } from '../hooks/useCustomTheme';
 import axios from 'axios';
-import Header from './Header';
 import InputArea from './InputArea';
 import DisplayWord from './DisplayWord';
 import Footer from './Footer';
@@ -43,9 +42,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <ScrollView testID='test-header' contentContainerStyle={[styles.container, { backgroundColor: colors.background }]}>
-      <SafeAreaView testID='home-screen'>
-        <Header />
+    <ScrollView testID='home-screen test-background' contentContainerStyle={[styles.container, { backgroundColor: colors.background }]}>
         <InputArea handleSearch={handleSearch} word={word} setWord={setWord} />
 
             <DisplayWord displayWord={displayWord} phoneticText={phoneticText} audioUrl={audioUrl} />
@@ -55,7 +52,6 @@ const HomeScreen = () => {
             ))}
 
             {displayWord ? <Footer displayWord={displayWord} /> : null}
-          </SafeAreaView>
       </ScrollView>
   );
 };

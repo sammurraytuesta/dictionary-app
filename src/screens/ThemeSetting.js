@@ -1,5 +1,5 @@
 import React, { useContext, Fragment } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { useCustomTheme } from '../hooks/useCustomTheme';
 import { ThemeContext, Themes } from '../context/Theme';
 
@@ -33,7 +33,7 @@ const ThemeSetting = () => {
   const { colors } = useCustomTheme();
 
   return (
-    <SafeAreaView style={[styles.container, {backgroundColor: colors.background}]}>
+    <View style={[styles.container, {backgroundColor: colors.background}]}>
       {Themes.map((key, index) => (
         <Fragment key={key}>
           <ThemeRow onPress={() => setTheme(key)} checked={theme === key}>
@@ -42,7 +42,7 @@ const ThemeSetting = () => {
           {index !== Themes.length - 1 && <Border />}
         </Fragment>
       ))}
-    </SafeAreaView>
+    </View>
   );
 };
 

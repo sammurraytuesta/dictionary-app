@@ -1,5 +1,4 @@
 import { fireEvent, render, waitFor } from '@testing-library/react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import HomeScreen from '../src/screens/HomeScreen';
 import InputArea from '../src/screens/InputArea';
 

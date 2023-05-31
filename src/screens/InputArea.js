@@ -48,7 +48,7 @@ const InputArea = ({handleSearch, word, setWord}) => {
             keyboardType='default'
             onChangeText={text => setWord(text)}
           />
-          <Pressable style={styles.button} onPress={handleSearch}>
+          <Pressable testID='search-button' style={styles.button} onPress={handleSearch}>
             <SearchIcon />
           </Pressable>
 

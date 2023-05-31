@@ -22,6 +22,7 @@ const HomeScreen = () => {
       const wordName = response.data[0].word;
       const phoneticText = response.data[0].phonetic;
       const url = response.data[0].phonetics[0].audio;
+      console.log(url);
       const meanings = response.data[0].meanings.map(meaning => {
         return {
           partOfSpeech: meaning.partOfSpeech,
@@ -43,11 +44,10 @@ const HomeScreen = () => {
   };
 
   return (
-      <ScrollView contentContainerStyle={[styles.container, { backgroundColor: colors.background }]}>
-          <SafeAreaView>
-            
-            <Header />
-            <InputArea handleSearch={handleSearch} word={word} setWord={setWord} />
+    <ScrollView testID='test-header' contentContainerStyle={[styles.container, { backgroundColor: colors.background }]}>
+      <SafeAreaView testID='home-screen'>
+        <Header />
+        <InputArea handleSearch={handleSearch} word={word} setWord={setWord} />
 
             <DisplayWord displayWord={displayWord} phoneticText={phoneticText} audioUrl={audioUrl} />
 

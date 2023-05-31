@@ -9,6 +9,7 @@ const DisplayWord = ({ displayWord, phoneticText, audioUrl }) => {
   let sound = null;
 
   const playAudio = async () => {
+    
     try {
       const { sound: playbackSound } = await Audio.Sound.createAsync(
         { uri: audioUrl },

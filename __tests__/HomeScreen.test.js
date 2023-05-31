@@ -1,4 +1,5 @@
 import { fireEvent, render, waitFor } from '@testing-library/react-native';
+import DisplayWord from '../src/screens/DisplayWord';
 import HomeScreen from '../src/screens/HomeScreen';
 import InputArea from '../src/screens/InputArea';
 
@@ -27,7 +28,7 @@ test('test background color', async () => {
   }, 10000);
 
 //Test if word search can be made successfully 
-test('test is searchButton triggers handleSearch function', async () => {
+test('test if searchButton triggers handleSearch function', async () => {
     const handleSearch = jest.fn();
     const word = jest.fn();
     const setWord = jest.fn();
@@ -41,9 +42,7 @@ test('test is searchButton triggers handleSearch function', async () => {
     const searchButton = getByTestId('search-button');
     fireEvent.press(searchButton);
     expect(handleSearch).toHaveBeenCalled();
+});
 
-})
 
-
-//Test is audio play button triggers playAudio function
 

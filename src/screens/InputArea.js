@@ -26,6 +26,7 @@ const InputArea = ({handleSearch, word, setWord}) => {
         flex: 1,
         height: 40,
         fontFamily: 'Lora-Bold',
+        color: colors.textBold,
       },
       button: {
         justifyContent: 'center',

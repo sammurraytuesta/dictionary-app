@@ -35,7 +35,7 @@ const Title = ({ style, ...rest }) => {
   return (
     <DefaultText
       style={[
-        { color: colors.TextBold, fontFamily: 'Lora-Bold', fontSize: 40 },
+        { color: colors.textBold, fontFamily: 'Lora-Bold', fontSize: 40 },
         style,
       ]}
       {...rest}

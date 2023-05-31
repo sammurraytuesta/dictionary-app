@@ -21,8 +21,8 @@ test('test background color', async () => {
     await waitFor(
         () => {
             const card = getByTestId('test-header');
-            const style = card.props.contentContainerStyle
-            expect(style.backgroundColor).toBe('white');
+            const style = card.props.contentContainerStyle[1];
+            expect(style.backgroundColor).toBe('#fff');
         },
         { timeout: 5000 }
     );

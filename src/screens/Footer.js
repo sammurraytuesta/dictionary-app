@@ -5,6 +5,29 @@ import NewWindowIcon from '../components/svgr/NewWindowIcon';
 
 
 const Footer = ({displayWord}) => {
+    const { colors } = useThemeColors();
+
+    const styles = StyleSheet.create({
+        horizontalLine: {
+          borderBottomColor: colors.textDescriptor,
+          borderBottomWidth: 0.5,
+          height: 5,
+        },
+        footerContainer: {
+            flex: 1,
+            flexDirection: 'row',
+            marginBottom: 20,
+            marginTop: 10,
+        },
+        footer: {
+            flex: 1,
+            width: '90%',
+            marginHorizontal: 20,
+        },
+        text: {
+            fontSize: 10,
+        },
+    });
 
     const openLink = () => {
         const url = `https://en.wiktionary.org/wiki/${displayWord}`;
@@ -28,27 +51,5 @@ const Footer = ({displayWord}) => {
 
     );
 };
-
-const styles = StyleSheet.create({
-    horizontalLine: {
-      borderBottomColor: '#afafaf',
-      borderBottomWidth: 0.5,
-      height: 5,
-    },
-    footerContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        marginBottom: 20,
-        marginTop: 10,
-    },
-    footer: {
-        flex: 1,
-        width: '90%',
-        marginHorizontal: 20,
-    },
-    text: {
-        fontSize: 10,
-    },
-});
 
 export default Footer;

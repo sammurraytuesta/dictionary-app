@@ -3,10 +3,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/screens/HomeScreen';
 import {useFonts} from 'expo-font';
+import { useThemeColors } from './src/hooks/useThemeColors';
 
 const Stack = createStackNavigator();
 
 const App = () => {
+  const { colors } = useThemeColors();
   const [fontsLoaded] = useFonts({
     'Inconsolata-Regular': require('./assets/fonts/inconsolata/static/Inconsolata-Regular.ttf'),
     'Inconsolata-Bold': require('./assets/fonts/inconsolata/static/Inconsolata-Bold.ttf'),
@@ -23,7 +25,13 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: { backgroundColor: colors.background },
+          headerTintColor: colors.textBold,
+          cardStyle: { backgroundColor: colors.background },
+        }}
+      >
         <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,8 +1,55 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import { useThemeColors } from '../hooks/useThemeColors';
 import { Text, TextBold, Title, Subtitle, Phonetics, Italics, Emphasize } from '../components/themed';
 
 const Card = ({ meaning }) => {
+  const { colors } = useThemeColors();
+
+  const styles = StyleSheet.create({
+    partOfSpeechContainer: {
+      width: '100%',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    meaningContainer: {
+      alignItems: 'left',
+      marginTop: 20,
+      marginHorizontal: 20,
+    },
+    definitionsContainer: {
+      marginBottom: 20,
+      width: '90%',
+      marginHorizontal: 15,
+    },
+    definitionContainer: {
+      marginBottom: 5,
+    },
+    bulletContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    bulletPoint: {
+      marginRight: 5,
+      color: colors.textAccent,
+    },
+    horizontalLine: {
+      borderBottomColor: colors.textDescriptor,
+      borderBottomWidth: 0.5,
+      height: 12,
+      width: '90%',
+    },
+    nyms: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+    },
+    example: {
+      marginTop: 5,
+      marginLeft: 10,
+      marginBottom: 0,
+    },
+  });
+
   return (
     <View style={styles.meaningContainer}>
       <View style={styles.partOfSpeechContainer}>
@@ -44,49 +91,5 @@ const Card = ({ meaning }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  partOfSpeechContainer: {
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  meaningContainer: {
-    alignItems: 'left',
-    marginTop: 20,
-    marginHorizontal: 20,
-  },
-  definitionsContainer: {
-    marginBottom: 20,
-    width: '90%',
-    marginHorizontal: 15,
-  },
-  definitionContainer: {
-    marginBottom: 5,
-  },
-  bulletContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  bulletPoint: {
-    marginRight: 5,
-    color: '#a743ed',
-  },
-  horizontalLine: {
-    borderBottomColor: '#afafaf',
-    borderBottomWidth: 0.5,
-    height: 12,
-    width: '90%',
-  },
-  nyms: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  example: {
-    marginTop: 5,
-    marginLeft: 10,
-    marginBottom: 0,
-  },
-});
 
 export default Card;

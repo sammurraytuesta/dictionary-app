@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { useThemeColors } from '../hooks/useThemeColors';
 import axios from 'axios';
 import Header from './Header';
 import InputArea from './InputArea';
@@ -8,6 +9,7 @@ import Footer from './Footer';
 import Card from './Card';
 
 const HomeScreen = () => {
+  const { colors } = useThemeColors();
   const [word, setWord] = useState('');
   const [displayWord, setDisplayWord] = useState('');
   const [phoneticText, setPhoneticText] = useState('');
@@ -42,7 +44,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <ScrollView testID='test-header' contentContainerStyle={styles.container} >
+    <ScrollView testID='test-header' contentContainerStyle={[styles.container, { backgroundColor: colors.background }]}>
       <SafeAreaView testID='home-screen'>
         <Header />
         <InputArea handleSearch={handleSearch} word={word} setWord={setWord} />
@@ -62,7 +64,6 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: 'white',
   },
 });
 

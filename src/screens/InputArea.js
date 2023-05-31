@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Pressable, Image} from 'react-native';
-import { useThemeColors } from '../hooks/useThemeColors.js';
+import { useCustomTheme } from '../hooks/useCustomTheme.js';
 import SearchIcon from '../components/svgr/SearchIcon.js';
 
 
 
 const InputArea = ({handleSearch, word, setWord}) => {
-  const { colors } = useThemeColors();
+  const { colors } = useCustomTheme();
 
   const styles = StyleSheet.create({
       inputContainer: {

@@ -1,16 +1,24 @@
-import { View, StyleSheet, Pressable, Linking } from 'react-native';
+import { View, StyleSheet, Pressable} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Logo from '../components/svgr/Logo';
 import ArrowDownIcon from '../components/svgr/ArrowDownIcon';
 import MoonIcon from '../components/svgr/MoonIcon';
 
 const Header = () => {
-    //maybe replace this whole thing with navigation??
+    const navigation = useNavigation();
+
+    const navigateToThemeSetting = () => {
+        navigation.navigate('Theme');
+    };
+    
     return (
         <View style={styles.header}>
             <Logo />
             <View style={styles.controls}>
                 <ArrowDownIcon />
-                <MoonIcon />
+                <Pressable onPress={navigateToThemeSetting}>
+                    <MoonIcon />
+                </Pressable>
             </View>
         </View>
     );

@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { useThemeColors } from '../hooks/useThemeColors';
+import { useCustomTheme } from '../hooks/useCustomTheme';
 import { Text, TextBold, Title, Subtitle, Phonetics, Italics, Emphasize } from '../components/themed';
 
 const Card = ({ meaning }) => {
-  const { colors } = useThemeColors();
+  const { colors } = useCustomTheme();
 
   const styles = StyleSheet.create({
     partOfSpeechContainer: {

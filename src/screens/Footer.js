@@ -1,11 +1,11 @@
 import { View, StyleSheet, Pressable, Linking } from 'react-native';
-import { useThemeColors } from '../hooks/useThemeColors.js';
+import { useCustomTheme} from '../hooks/useCustomTheme.js';
 import { Text } from '../components/themed';
 import NewWindowIcon from '../components/svgr/NewWindowIcon';
 
 
 const Footer = ({displayWord}) => {
-    const { colors } = useThemeColors();
+    const { colors } = useCustomTheme();
 
     const styles = StyleSheet.create({
         horizontalLine: {

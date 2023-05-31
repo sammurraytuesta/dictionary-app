@@ -11,7 +11,9 @@
   },
   "jest": {
     "preset": "jest-expo",
-    "setupFiles": ["./__mocks__/@react-native-async-storage/jestSetupFile.js"]
+    "setupFiles": [
+      "./__mocks__/@react-native-async-storage/jestSetupFile.js"
+    ]
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.18.1",
@@ -20,6 +22,7 @@
     "@react-navigation/stack": "^6.3.16",
     "axios": "^1.4.0",
     "expo": "~48.0.15",
+    "expo-av": "~13.2.1",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-native": "0.71.7",
@@ -28,8 +31,7 @@
     "react-native-safe-area-context": "^4.5.2",
     "react-native-screens": "^3.20.0",
     "react-native-sound-player": "^0.13.2",
-    "react-native-svg": "^13.4.0",
-    "expo-av": "~13.2.1"
+    "react-native-svg": "^13.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

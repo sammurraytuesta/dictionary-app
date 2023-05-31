@@ -11,7 +11,6 @@ const DisplayWord = ({ displayWord, phoneticText, audioUrl }) => {
   useEffect(() => {
     return sound
       ? () => {
-          console.log('Playing Sound');
           sound.unloadAsync(); 
         }
       : undefined;
@@ -25,13 +24,6 @@ const DisplayWord = ({ displayWord, phoneticText, audioUrl }) => {
         setIsPlaying(true);
       } catch (error) {
         console.log('Error playing audio:', error);
-      }
-    };
-  
-    const stopAudio = async () => {
-      if (sound) {
-        await sound.stopAsync();
-        setIsPlaying(false);
       }
     };
 

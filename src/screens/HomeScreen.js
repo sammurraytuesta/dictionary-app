@@ -28,7 +28,6 @@ const HomeScreen = () => {
           break;
         }
       }
-      console.log(url);
       const meanings = response.data[0].meanings.map(meaning => {
         return {
           partOfSpeech: meaning.partOfSpeech,

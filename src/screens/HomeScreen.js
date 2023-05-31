@@ -57,13 +57,20 @@ const HomeScreen = () => {
     <ScrollView testID='home-screen' contentContainerStyle={[styles.container, { backgroundColor: colors.background }]}>
         <InputArea handleSearch={handleSearch} word={word} setWord={setWord} />
 
-            {displayError ? <> <DisplayWord displayWord={displayWord} phoneticText={phoneticText} audioUrl={audioUrl} /> 
+            {displayError ? 
+              <> 
+                <DisplayWord 
+                  displayWord={displayWord} 
+                  phoneticText={phoneticText} 
+                  audioUrl={audioUrl} 
+                /> 
 
-            {meanings.map((mean, index) => (
-              <Card key={index} meaning={mean} />
-            ))}
+                {meanings.map((mean, index) => (
+                  <Card key={index} meaning={mean} />
+                ))}
 
-            <Footer displayWord={displayWord} /> </> : <DisplayNoWord isWord={isWord}/> }
+                {displayWord ? <Footer displayWord={displayWord} /> : null}
+              </> : <DisplayNoWord isWord={isWord}/> }
       </ScrollView>
   );
 };

@@ -42,7 +42,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <ScrollView testID='home-screen test-background' contentContainerStyle={[styles.container, { backgroundColor: colors.background }]}>
+    <ScrollView testID='home-screen' contentContainerStyle={[styles.container, { backgroundColor: colors.background }]}>
         <InputArea handleSearch={handleSearch} word={word} setWord={setWord} />
 
             <DisplayWord displayWord={displayWord} phoneticText={phoneticText} audioUrl={audioUrl} />

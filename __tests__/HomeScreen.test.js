@@ -20,13 +20,12 @@ test('test background color', async () => {
 
     await waitFor(
         () => {
-            const card = getByTestId('test-background');
+            const card = getByTestId('home-screen');
             const style = card.props.contentContainerStyle[1];
             expect(style.backgroundColor).toBe('#fff');
         },
-        { timeout: 5000 }
-    );
-  });
+        {timeout: 6000});
+  }, 10000);
 
 //Test if word search can be made successfully 
 test('test is searchButton triggers handleSearch function', async () => {

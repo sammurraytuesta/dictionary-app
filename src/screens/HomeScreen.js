@@ -20,7 +20,14 @@ const HomeScreen = () => {
       const response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
       const wordName = response.data[0].word;
       const phoneticText = response.data[0].phonetic;
-      const url = response.data[0].phonetics[0].audio;
+      const phonetics = response.data[0].phonetics;
+      let url = '';
+      for (let i = 0; i < phonetics.length; i++) {
+        if (phonetics[i].audio) {
+          url = phonetics[i].audio;
+          break;
+        }
+      }
       console.log(url);
       const meanings = response.data[0].meanings.map(meaning => {
         return {

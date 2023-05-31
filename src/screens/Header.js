@@ -31,10 +31,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         marginHorizontal: '5%',
-        marginTop: 10,
+        marginVertical: 15,
     },
     controls: {
-        width: '20%',
+        width: '15%',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',

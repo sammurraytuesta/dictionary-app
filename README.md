@@ -1,7 +1,7 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-7f7980b617ed060a017424585567c406b6ee15c891e84e1186181d67ecf80aa0.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=11113739)
 # Project 2
 
-Your name(s): XXX (replace with your names, separated by commas if there are multiple people)
+Samantha Murray Tuesta, Nikita Rana
 
 
 ## Code base
@@ -66,3 +66,9 @@ When you finish, please do the following:
 3. capture how your app looks locally in the simulated app on your machine
 4. put the captured image in the design folder
 5. edit this README file to display your captured image here in this README file (see the above displayed expected design as an example)
+
+# Simulated App
+Simulated dictionary application on a iPhone 14 Pro Max (light and dark themes)
+
+<img width="375px" src="./design/simulated-app-light.png"/>
+<img width="375px" src="./design/simulated-app-dark.png"/>

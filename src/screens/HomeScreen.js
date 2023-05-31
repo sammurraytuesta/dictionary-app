@@ -6,6 +6,7 @@ import InputArea from './InputArea';
 import DisplayWord from './DisplayWord';
 import Footer from './Footer';
 import Card from './Card';
+import DisplayNoWord from './DisplayNoWord';
 
 const HomeScreen = () => {
   const { colors } = useCustomTheme();
@@ -14,6 +15,8 @@ const HomeScreen = () => {
   const [phoneticText, setPhoneticText] = useState('');
   const [meanings, setMeanings] = useState([]);
   const [audioUrl, setAudioUrl] = useState('');
+  const [isWord, setIsWord] = useState('');
+  const [displayError, setDisplayError] = useState(true);
 
   const handleSearch = async () => {
     try {
@@ -37,8 +40,10 @@ const HomeScreen = () => {
       setPhoneticText(phoneticText);
       setMeanings(meanings);
       setAudioUrl(url);
+      setDisplayError(true);
     } catch (error) {
-      console.error(error);
+        setDisplayError(false);
+        setIsWord("Sorry pal, we couldn't find definitions for the word you were looking for.You can try the search again at later time or head to the web instead" );
     }
   };
 
@@ -46,13 +51,13 @@ const HomeScreen = () => {
     <ScrollView testID='home-screen' contentContainerStyle={[styles.container, { backgroundColor: colors.background }]}>
         <InputArea handleSearch={handleSearch} word={word} setWord={setWord} />
 
-            <DisplayWord displayWord={displayWord} phoneticText={phoneticText} audioUrl={audioUrl} />
+            {displayError ? <> <DisplayWord displayWord={displayWord} phoneticText={phoneticText} audioUrl={audioUrl} /> 
 
             {meanings.map((mean, index) => (
               <Card key={index} meaning={mean} />
             ))}
 
-            {displayWord ? <Footer displayWord={displayWord} /> : null}
+            <Footer displayWord={displayWord} /> </> : <DisplayNoWord isWord={isWord}/> }
       </ScrollView>
   );
 };

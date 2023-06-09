@@ -26,9 +26,11 @@ Instead of starting from scratch, a code base has been generated for this applic
 Developed a Dictionary application using React Native and Expo. Below is the simulated Dictionary application on an iPhone 14 Pro Max using both light and dark themes:
 
 Light Theme:
+
 <img width="375px" src="./design/simulated-app-light.png"/>
 
 Dark Theme: 
+
 <img width="375px" src="./design/simulated-app-dark.png"/>
 
 ### Functionality
